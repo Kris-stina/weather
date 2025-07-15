@@ -14,12 +14,6 @@
 
 
 <script setup>
-/* let form = {surname:"", name:"",patronymic: "",DateBirth: "", EMail: "", INN: ""}
-
-function sendData() {
-    console.log("Данные формы ", form)
-} */
-
 import {ref, defineEmits} from 'vue';
 
 const surname = ref('');
