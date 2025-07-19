@@ -75,5 +75,14 @@ const handleFormSubmit = (form) => {
   formData.value = form;       /* Получаем данные формы от дочернего компонента */
 console.log(form, "из родителя")
 }
-
 </script>
+
+
+<style scoped>
+h1{
+  text-align: center;
+  
+}
+
+
+</style>
