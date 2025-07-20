@@ -1,37 +1,40 @@
 <template>
+<div class="parent-component">
+  <!-- Родительский компонент. -->
+    <h1 class="main-title">Родительский компонент</h1>
 
-<!-- Родительский компонент. -->
-  <h1>Родительский компонент</h1>
+  <!-- Используем компонент TestComponents и передаем ему строковое значение (propMessage) и обработчики событий custom-event(handleCounterUpdate) и reset-event(handleCounterReset). -->
+    <TestComponents propMessage="Сообщение от родителя!" @custom-event="handleCounterUpdate" @reset-event="handleCounterReset"></TestComponents>
 
-<!-- Используем компонент TestComponents и передаем ему строковое значение (propMessage) и обработчики событий custom-event(handleCounterUpdate) и reset-event(handleCounterReset). -->
-  <TestComponents propMessage="Сообщение от родителя!" @custom-event="handleCounterUpdate" @reset-event="handleCounterReset"></TestComponents>
+  <div class="my-form"><MyForm></MyForm></div>
 
-<div class="my-form"><MyForm></MyForm></div>
+  <!-- Отображаем значение счетчика, полученное из дочернего компонента. -->
+  <div class="counter-info">
+    <p>Значение счетчика из дочернего компонента: {{ counterValue }}</p>
 
-<!-- Отображаем значение счетчика, полученное из дочернего компонента. -->
-  <p>Значение счетчика из дочернего компонента: {{ counterValue }}</p>
-
-<!-- Отображаем сколько раз счетчик был сброшен. -->
-  <p>Счетчик был сброшен: {{ resetCount }} раз</p>
-
-
-
-
-
-<!-- ФОРМА -->
-
-<div>
-  <h1>Form Data</h1>
-  <MyForm @formSubmitted="handleFormSubmit"/>
-
-  <div v-if="formData">
-    <h3>Введенные данные</h3>
-    <ul>
-      <li v-for="(value, key) in formData" :key="key">{{ key }} : {{ value }} 
-      </li>
-    </ul>
+  <!-- Отображаем сколько раз счетчик был сброшен. -->
+    <p>Счетчик был сброшен: {{ resetCount }} раз</p>
   </div>
-</div></template>
+
+
+
+
+  <!-- ФОРМА -->
+
+  <div class="form-data-section">
+    <h1 class="section-title">Form Data</h1>
+    <MyForm @formSubmitted="handleFormSubmit"/>
+
+    <div v-if="formData" class="data-display">
+      <h3>Введенные данные</h3>
+      <ul>
+        <li v-for="(value, key) in formData" :key="key">{{ key }} : {{ value }} 
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+</template>
 
 
 <script setup>
@@ -79,10 +82,74 @@ console.log(form, "из родителя")
 
 
 <style scoped>
-h1{
-  text-align: center;
-  
+/* Общие стили */
+
+.parent-component{
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #6a95a6;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Заголовки */
+.main-title{
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #031035;
+  text-align: center;
+}
 
+.section-title{
+  font-size: 1.8em;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #031035;
+  text-align: center;
+}
+
+/* Формы */
+.my-form{
+  margin-bottom: 20px;
+}
+
+/* Информация о счетчиках */
+.counter-info{
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+/* Данные формы */
+.form-data-section{
+  margin-top: 30px;
+}
+
+.data-display{
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.data-display h3{
+  margin-bottom: 10px;
+  color: #031035;
+}
+.data-display ul{
+  list-style: square;
+  padding: 0;
+  margin-left: 10px;
+}
+.data-display li{
+  padding: 8px 0;
+  border-bottom: 2px solid #6a95a6;
+}
+
+/* Отключаем последнее подчеркивание */
+.data-display li:last-child{
+  border-bottom: none;
+}
 </style>
