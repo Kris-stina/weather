@@ -1,15 +1,15 @@
 <template>
 <div class="parent-component">
   <!-- Родительский компонент. -->
-    <h1 class="main-title">Родительский компонент</h1>
+    <h1 class="parent-component__main-title">Родительский компонент</h1>
 
   <!-- Используем компонент TestComponents и передаем ему строковое значение (propMessage) и обработчики событий custom-event(handleCounterUpdate) и reset-event(handleCounterReset). -->
     <TestComponents propMessage="Сообщение от родителя!" @custom-event="handleCounterUpdate" @reset-event="handleCounterReset"></TestComponents>
 
-  <div class="my-form"><MyForm></MyForm></div>
+  <div class="parent-component__my-form"><MyForm></MyForm></div>
 
   <!-- Отображаем значение счетчика, полученное из дочернего компонента. -->
-  <div class="counter-info">
+  <div class="parent-component__counter-info">
     <p>Значение счетчика из дочернего компонента: {{ counterValue }}</p>
 
   <!-- Отображаем сколько раз счетчик был сброшен. -->
@@ -21,11 +21,11 @@
 
   <!-- ФОРМА -->
 
-  <div class="form-data-section">
-    <h1 class="section-title">Form Data</h1>
+  <div class="parent-component__form-data-section">
+    <h1 class="parent-component__form-data-section__section-title">Form Data</h1>
     <MyForm @formSubmitted="handleFormSubmit"/>
 
-    <div v-if="formData" class="data-display">
+    <div v-if="formData" class="parent-component__form-data-section__data-display">
       <h3>Введенные данные</h3>
       <ul>
         <li v-for="(value, key) in formData" :key="key">{{ key }} : {{ value }} 
@@ -94,14 +94,14 @@ console.log(form, "из родителя")
 }
 
 /* Заголовки */
-.main-title{
+.parent-component__main-title{
   font-size: 2.5em;
   margin-bottom: 20px;
   color: #031035;
   text-align: center;
 }
 
-.section-title{
+.parent-component__form-data-section__section-title{
   font-size: 1.8em;
   margin-top: 30px;
   margin-bottom: 15px;
@@ -110,12 +110,12 @@ console.log(form, "из родителя")
 }
 
 /* Формы */
-.my-form{
+.parent-component__my-form{
   margin-bottom: 20px;
 }
 
 /* Информация о счетчиках */
-.counter-info{
+.parent-component__counter-info{
   margin-top: 20px;
   padding: 15px;
   background-color: #f9f9f9;
@@ -123,33 +123,33 @@ console.log(form, "из родителя")
 }
 
 /* Данные формы */
-.form-data-section{
+.parent-component__form-data-section{
   margin-top: 30px;
 }
 
-.data-display{
+.parent-component__form-data-section__data-display{
   margin-top: 15px;
   padding: 15px;
   background-color: #f9f9f9;
   border-radius: 8px;
 }
 
-.data-display h3{
+.parent-component__form-data-section__data-display h3{
   margin-bottom: 10px;
   color: #031035;
 }
-.data-display ul{
+.parent-component__form-data-section__data-display ul{
   list-style: square;
   padding: 0;
   margin-left: 10px;
 }
-.data-display li{
+.parent-component__form-data-section__data-display li{
   padding: 8px 0;
   border-bottom: 2px solid #6a95a6;
 }
 
 /* Отключаем последнее подчеркивание */
-.data-display li:last-child{
+.parent-component__form-data-section__data-display li:last-child{
   border-bottom: none;
 }
 </style>

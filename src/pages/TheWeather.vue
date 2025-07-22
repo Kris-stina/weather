@@ -1,6 +1,10 @@
 <template>
 
     <div>
-        weather
+        <h1>weather</h1>
     </div>
 </template>
+
+
+
+

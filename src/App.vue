@@ -1,9 +1,9 @@
 <template>
   <nav>
-    <router-link to="/" class="nav-link">Home</router-link> |
-    <router-link to="/form" class="nav-link">Form</router-link> |
-    <router-link to="/weather" class="nav-link">Weather</router-link> |
-    <router-link to="/app-old" class="nav-link">AppOld</router-link>
+    <router-link to="/" class="nav__link">Home</router-link> |
+    <router-link to="/form" class="nav__link">Form</router-link> |
+    <router-link to="/weather" class="nav__link">Weather</router-link> |
+    <router-link to="/app-old" class="nav__link">AppOld</router-link>
     
   </nav>
   <router-view />
@@ -35,7 +35,7 @@ nav{
   box-shadow: 0 2px 4px rgba(131, 113, 113, 0.2);
   margin-bottom: 20px;
 }
-.nav-link{
+.nav__link{
   color: #031035;
   font-size: 20px;
   text-decoration: none;
@@ -45,11 +45,11 @@ nav{
   margin: 0 10px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-.nav-link:hover{
+.nav__link:hover{
   background-color: #152e38;
   color: #7b8bae;
 }
-.nav-link.router-link-active{
+.nav__link.router-link-active{
   background-color: #3b5c69;;
   color: #100d0d;
 }
@@ -59,7 +59,6 @@ nav > *:not(:last-child)::after{
   margin-left: 10px;
   margin-right: 10px;
 }
-
 
 
 

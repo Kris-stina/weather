@@ -1,12 +1,13 @@
 <template> 
-<div class="info-form">Введите данные:
-    <input v-model="surname" type="text" placeholder="Фамилия">
-    <input v-model="name" type="text" placeholder="Имя">
-    <input type="text" placeholder="Отчество">
-    <input type="text" placeholder="Дата рождения">
-    <input type="text" placeholder="E-mail">
-    <input type="text" placeholder="ИНН">
-    <button @click="sendData">Отправить</button>
+<div class="info-form">
+    <p class="info-form__title">Введите данные:</p>
+    <input v-model="surname" type="text" placeholder="Фамилия" class="info-form__input">
+    <input v-model="name" type="text" placeholder="Имя" class="info-form__input">
+    <input type="text" placeholder="Отчество" class="info-form__input">
+    <input type="text" placeholder="Дата рождения" class="info-form__input">
+    <input type="text" placeholder="E-mail" class="info-form__input">
+    <input type="text" placeholder="ИНН" class="info-form__input">
+    <button @click="sendData" class="info-form__button">Отправить</button>
 </div>
 
 </template>
@@ -36,9 +37,7 @@ function sendData() {
     };
 
     emit('formSubmitted', form)
-    
 }
-
 </script>
 
 
@@ -48,7 +47,17 @@ function sendData() {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #6a95a6;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
+.info-form__input{
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+}
 
 </style>
