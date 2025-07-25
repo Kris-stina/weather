@@ -21,11 +21,11 @@
 
   <!-- ФОРМА -->
 
-  <div class="parent-component__form-data-section">
-    <h1 class="parent-component__form-data-section__section-title">Form Data</h1>
+  <div class="form">
+    <h1 class="form__section-title">Form Data</h1>
     <MyForm @formSubmitted="handleFormSubmit"/>
 
-    <div v-if="formData" class="parent-component__form-data-section__data-display">
+    <div v-if="formData" class="form__data-display">
       <h3>Введенные данные</h3>
       <ul>
         <li v-for="(value, key) in formData" :key="key">{{ key }} : {{ value }} 
@@ -81,9 +81,12 @@ console.log(form, "из родителя")
 </script>
 
 
-<style scoped>
+<style scoped lang="scss">
 /* Общие стили */
 
+  
+
+/* Заголовки */
 .parent-component{
   max-width: 800px;
   margin: 20px auto;
@@ -91,65 +94,70 @@ console.log(form, "из родителя")
   background-color: #6a95a6;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  &__main-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #031035;
+    text-align: center;
+    background-color: white;
+  }
+  .form{
+    &__section-title {
+      font-size: 1.8em;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      color: #031035;
+      text-align: center;
+    }
+    
+    &__data-display {
+      margin-top: 15px;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+    }
+  }
+
+  &__my-form{
+    margin-bottom: 20px;
+  }
+
+  /* Информация о счетчиках */
+  &__counter-info{
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+
+  /* Данные формы */
+  &__form-data-section{
+    margin-top: 30px;
+  }
+
+  
+
+  &__form-data-section__data-display h3{
+    margin-bottom: 10px;
+    color: #031035;
+  }
+  &__form-data-section__data-display ul{
+    list-style: square;
+    padding: 0;
+    margin-left: 10px;
+  }
+  &__form-data-section__data-display li{
+    padding: 8px 0;
+    border-bottom: 2px solid #6a95a6;
+  }
+
+  /* Отключаем последнее подчеркивание */
+  &__form-data-section__data-display li:last-child{
+    border-bottom: none;
+  }
 }
 
-/* Заголовки */
-.parent-component__main-title{
-  font-size: 2.5em;
-  margin-bottom: 20px;
-  color: #031035;
-  text-align: center;
-}
 
-.parent-component__form-data-section__section-title{
-  font-size: 1.8em;
-  margin-top: 30px;
-  margin-bottom: 15px;
-  color: #031035;
-  text-align: center;
-}
 
-/* Формы */
-.parent-component__my-form{
-  margin-bottom: 20px;
-}
-
-/* Информация о счетчиках */
-.parent-component__counter-info{
-  margin-top: 20px;
-  padding: 15px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-}
-
-/* Данные формы */
-.parent-component__form-data-section{
-  margin-top: 30px;
-}
-
-.parent-component__form-data-section__data-display{
-  margin-top: 15px;
-  padding: 15px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-}
-
-.parent-component__form-data-section__data-display h3{
-  margin-bottom: 10px;
-  color: #031035;
-}
-.parent-component__form-data-section__data-display ul{
-  list-style: square;
-  padding: 0;
-  margin-left: 10px;
-}
-.parent-component__form-data-section__data-display li{
-  padding: 8px 0;
-  border-bottom: 2px solid #6a95a6;
-}
-
-/* Отключаем последнее подчеркивание */
-.parent-component__form-data-section__data-display li:last-child{
-  border-bottom: none;
-}
 </style>
